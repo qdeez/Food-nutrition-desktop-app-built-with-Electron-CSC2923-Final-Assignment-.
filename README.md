@@ -4,7 +4,7 @@ Food nutrition desktop app built with Electron (CSC2923 Final Assignment).
 
 ## Features
 - Search foods using the USDA FoodData Central API
-- Diet-based food suggestions (own if...else logic), saved in Local Storage
+- Diet-based food suggestions, saved in Local Storage
 - Portion calculator and daily calorie/macro totals
 - Food log with Create, Read, Update, Delete (Local Storage)
 
