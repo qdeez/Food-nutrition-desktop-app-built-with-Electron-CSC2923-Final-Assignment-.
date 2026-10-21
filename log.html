@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>NutritionPlan - My Food Log</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1>NutritionPlan</h1>
+    <nav>
+      <a href="index.html">Food Search</a>
+      <a href="log.html" class="active">My Food Log</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Daily summary + calorie goal -->
+    <section class="card">
+      <h2>Daily summary</h2>
+      <div class="form-row">
+        <div class="field">
+          <label for="viewDate">Show records for date</label>
+          <input type="date" id="viewDate">
+        </div>
+        <div class="field">
+          <label for="goalInput">Daily calorie goal (kcal)</label>
+          <input type="number" id="goalInput" min="500" max="10000">
+        </div>
+        <button id="goalBtn" class="btn">Save Goal</button>
+      </div>
+      <div id="summaryBox" class="calc-box"></div>
+      <div class="bar"><div id="barFill" class="bar-fill"></div></div>
+      <p id="goalMsg" class="msg hidden"></p>
+    </section>
+
+    <!-- Create / Update form -->
+    <section class="card">
+      <h2 id="formTitle">Add a food record</h2>
+      <p class="hint">Enter nutrition values per 100 g (you can copy them from the Food Search page).</p>
+      <div class="form-row">
+        <div class="field">
+          <label for="nameInput">Food name</label>
+          <input type="text" id="nameInput" placeholder="e.g. Banana">
+        </div>
+        <div class="field">
+          <label for="gramsInput">Grams eaten</label>
+          <input type="number" id="gramsInput" min="1" max="5000">
+        </div>
+        <div class="field">
+          <label for="mealInput">Meal</label>
+          <select id="mealInput">
+            <option value="Breakfast">Breakfast</option>
+            <option value="Lunch">Lunch</option>
+            <option value="Dinner">Dinner</option>
+            <option value="Snack">Snack</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="dateInput">Date</label>
+          <input type="date" id="dateInput">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="field">
+          <label for="kcalInput">Calories per 100g (kcal)</label>
+          <input type="number" id="kcalInput" min="0" max="900">
+        </div>
+        <div class="field">
+          <label for="proteinInput">Protein per 100g (g)</label>
+          <input type="number" id="proteinInput" min="0" max="100">
+        </div>
+        <div class="field">
+          <label for="carbsInput">Carbs per 100g (g)</label>
+          <input type="number" id="carbsInput" min="0" max="100">
+        </div>
+        <div class="field">
+          <label for="fatInput">Fat per 100g (g)</label>
+          <input type="number" id="fatInput" min="0" max="100">
+        </div>
+      </div>
+      <div class="form-row">
+        <button id="saveBtn" class="btn">Add Record</button>
+        <button id="cancelBtn" class="btn btn-grey hidden">Cancel Edit</button>
+      </div>
+      <p id="formMsg" class="msg hidden"></p>
+    </section>
+
+    <!-- Read: list of records -->
+    <section class="card">
+      <h2>Food records</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Food</th><th>Meal</th><th>Grams</th>
+            <th>Calories (kcal)</th><th>Protein (g)</th><th>Carbs (g)</th><th>Fat (g)</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="logBody"></tbody>
+      </table>
+    </section>
+
+    <!-- Saved suggestions (from Local Storage) -->
+    <section class="card">
+      <h2>Saved suggestions</h2>
+      <ul id="suggestHistory" class="food-list"></ul>
+      <button id="clearSuggestBtn" class="btn btn-grey">Clear Suggestions</button>
+    </section>
+  </main>
+
+  <script src="js/common.js"></script>
+  <script src="js/log.js"></script>
+</body>
+</html>

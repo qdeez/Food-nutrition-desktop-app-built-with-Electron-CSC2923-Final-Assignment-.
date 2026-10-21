@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>NutritionPlan - Food Search</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1>NutritionPlan</h1>
+    <nav>
+      <a href="index.html" class="active">Food Search</a>
+      <a href="log.html">My Food Log</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Step 1: search -->
+    <section class="card">
+      <h2>1. Search a food</h2>
+      <p class="hint">Type a food, fruit or vegetable (e.g. banana, chicken, spinach), choose your diet goal, then press Search.</p>
+      <div class="form-row">
+        <div class="field">
+          <label for="foodInput">Food name</label>
+          <input type="text" id="foodInput" placeholder="e.g. banana">
+        </div>
+        <div class="field">
+          <label for="dietSelect">Diet / nutrition goal</label>
+          <select id="dietSelect">
+            <option value="">-- Choose a goal --</option>
+            <option value="highprotein">High Protein (15g+ protein per 100g)</option>
+            <option value="lowcarb">Low Carb (10g or less carbs per 100g)</option>
+            <option value="lowcal">Low Calorie (100 kcal or less per 100g)</option>
+            <option value="highfiber">High Fibre (5g+ fibre per 100g)</option>
+          </select>
+        </div>
+        <button id="searchBtn" class="btn">Search</button>
+      </div>
+      <p id="statusMsg" class="msg hidden"></p>
+    </section>
+
+    <!-- Step 2: suggestions (made by my own if-else logic) -->
+    <section class="card hidden" id="suggestSection">
+      <h2>2. Suggested foods for your goal</h2>
+      <p id="suggestInfo" class="hint"></p>
+      <ul id="suggestList" class="food-list"></ul>
+    </section>
+
+    <!-- All results -->
+    <section class="card hidden" id="resultsSection">
+      <h2>All search results</h2>
+      <ul id="resultsList" class="food-list"></ul>
+    </section>
+
+    <!-- Details + portion calculator -->
+    <section class="card hidden" id="detailSection">
+      <h2 id="detailName">Food details</h2>
+      <p id="detailCategory" class="hint"></p>
+
+      <h3>Nutrition per 100 g</h3>
+      <table>
+        <thead>
+          <tr><th>Nutrient</th><th>Amount</th></tr>
+        </thead>
+        <tbody id="nutrientTable"></tbody>
+      </table>
+
+      <h3>Portion calculator</h3>
+      <div class="form-row">
+        <div class="field">
+          <label for="gramsInput">Portion size (grams)</label>
+          <input type="number" id="gramsInput" value="100" min="1" max="5000">
+        </div>
+        <div class="field">
+          <label for="mealSelect">Meal</label>
+          <select id="mealSelect">
+            <option value="Breakfast">Breakfast</option>
+            <option value="Lunch">Lunch</option>
+            <option value="Dinner">Dinner</option>
+            <option value="Snack">Snack</option>
+          </select>
+        </div>
+        <button id="addBtn" class="btn">Add to Food Log</button>
+      </div>
+      <div id="calcResult" class="calc-box"></div>
+      <p id="detailMsg" class="msg hidden"></p>
+    </section>
+  </main>
+
+  <script src="js/config.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/search.js"></script>
+</body>
+</html>

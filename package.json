@@ -1,0 +1,16 @@
+{
+  "name": "nutritionplan",
+  "version": "1.0.0",
+  "description": "NutritionPlan - Food Nutrition desktop app built with Electron (CSC2923 Final Assignment)",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "qd",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^45.0.0"
+  },
+  "keywords": [],
+  "type": "commonjs"
+}
