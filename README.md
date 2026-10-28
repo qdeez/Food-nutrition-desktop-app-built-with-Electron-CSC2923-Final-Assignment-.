@@ -10,13 +10,14 @@ Food nutrition desktop app built with Electron (CSC2923 Final Assignment).
 
 ## How to run
 1. Install Node.js
-2. Open a terminal in this folder and run:
+2. Get a free API key at https://fdc.nal.usda.gov/api-key-signup and paste it into `js/config.js` at `const API_KEY`.
+   `DEMO_KEY` works for testing but has a low request limit.
+3. Open a terminal in this folder and run:
    ```
    npm install
    npm start
    ```
-3. Get a free API key at https://fdc.nal.usda.gov/api-key-signup and paste it into `js/config.js` at `const API_KEY`.
-   `DEMO_KEY` works for testing but has a low request limit.
+
 
 ## Structure
 - `main.js` - Electron main process
