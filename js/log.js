@@ -2,6 +2,16 @@
 
 let editId = null; // null = adding a new record, otherwise the id of the record being edited
 
+// Security: turn special characters into plain text before putting user data into innerHTML
+function escapeHtml(text) {
+  return String(text)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
 // ---------- get the HTML elements ----------
 const viewDate = document.getElementById("viewDate");
 const goalInput = document.getElementById("goalInput");
@@ -57,7 +67,7 @@ function renderLog() {
 
     const tr = document.createElement("tr");
     tr.innerHTML =
-      "<td>" + r.name + "</td><td>" + r.meal + "</td><td>" + r.grams + "</td>" +
+      "<td>" + escapeHtml(r.name) + "</td><td>" + escapeHtml(r.meal) + "</td><td>" + escapeHtml(r.grams) + "</td>" +
       "<td>" + kcal + "</td><td>" + protein + "</td><td>" + carbs + "</td><td>" + fat + "</td>" +
       '<td><button class="btn btn-small" data-action="edit" data-id="' + r.id + '">Edit</button>' +
       '<button class="btn btn-small btn-red" data-action="delete" data-id="' + r.id + '">Delete</button></td>';
@@ -241,7 +251,7 @@ function saveGoalClick() {
   renderLog();
 }
 
-// ---------- Saved suggestions (stored in Local Storage by the Food Search page) ----------
+// ---------- Saved suggestions  ----------
 function renderSuggestions() {
   const history = getSuggestions();
   suggestHistory.innerHTML = "";
@@ -258,10 +268,10 @@ function renderSuggestions() {
     const li = document.createElement("li");
     const names = [];
     for (let j = 0; j < h.foods.length; j++) {
-      names.push(h.foods[j].name);
+      names.push(escapeHtml(h.foods[j].name));
     }
     li.innerHTML =
-      "<div><div class='food-name'>" + h.diet + " | search: " + h.query + " (" + h.date + ")</div>" +
+      "<div><div class='food-name'>" + escapeHtml(h.diet) + " | search: " + escapeHtml(h.query) + " (" + escapeHtml(h.date) + ")</div>" +
       "<div class='food-info'>" + names.join("; ") + "</div></div>";
     suggestHistory.appendChild(li);
   }

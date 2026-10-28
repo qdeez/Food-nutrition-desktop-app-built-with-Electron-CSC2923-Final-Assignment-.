@@ -1,7 +1,6 @@
 // common.js - helper functions shared by both pages (Local Storage + small utilities)
 
 // ---------- Local Storage ----------
-// Read JSON from Local Storage. If nothing saved (or data is broken) return the fallback.
 function loadData(key, fallback) {
   try {
     const text = localStorage.getItem(key);
