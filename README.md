@@ -15,7 +15,7 @@ Food nutrition desktop app built with Electron (CSC2923 Final Assignment).
    npm install
    npm start
    ```
-3. Get a free API key at https://fdc.nal.usda.gov/api-key-signup and paste it into `js/config.js`.
+3. Get a free API key at https://fdc.nal.usda.gov/api-key-signup and paste it into `js/config.js` at `const API_KEY`.
    `DEMO_KEY` works for testing but has a low request limit.
 
 ## Structure
